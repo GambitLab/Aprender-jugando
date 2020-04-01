@@ -6,20 +6,26 @@ using UnityEngine.Events;
 
 public class Colores : MonoBehaviour
 {
-    public KeywordRecognizer keywordRecognizer;
-    public string[] palabras;
-    public Color[] colores;
-    private string palabraActual;
-    private int indiceAnterior = -1;
+    private ReconocimientoVoz reconocimiento;
 
+    public string[][] palabras = { null,
+                                   new string[] { "salir" } };
+    
+    private string[] acciones = { "EscuchadoColor",
+                                 "Salir" };
+
+    public Color[] colores;
+    public string[] coloresLetras;
+
+    private string palabraActual;
+        private int indiceAnterior = -1;
+    
     // Start is called before the first frame update
     void Start()
     {
-        CambiarColor();
-        
-        keywordRecognizer = new KeywordRecognizer(palabras);
-        keywordRecognizer.OnPhraseRecognized += reconocer;
-        keywordRecognizer.Start();
+        palabras[0] = coloresLetras;
+        reconocimiento = new ReconocimientoVoz(palabras, acciones, this);
+        CambiarColor();      
     }
     
     // Update is called once per frame
@@ -28,9 +34,9 @@ public class Colores : MonoBehaviour
         
     }
 
-    public void reconocer(PhraseRecognizedEventArgs escuchado)
+    public void EscuchadoColor()
     {
-        string palabra = escuchado.text;
+        string palabra = reconocimiento.reconocido;
         if(palabra == palabraActual)
         {
             //Le pego
@@ -39,7 +45,7 @@ public class Colores : MonoBehaviour
         else
         {
             //No le pego
-
+            Debug.Log("sos malisimo, pa tu casa");
         }
     }
 
@@ -47,12 +53,17 @@ public class Colores : MonoBehaviour
     {
         int indice;
         do {
-            indice = Random.Range(0, palabras.Length);
+            indice = Random.Range(0, palabras[0].Length);
         } while (indiceAnterior == indice);
 
         indiceAnterior = indice;
 
-        palabraActual = palabras[indice];
+        palabraActual = palabras[0][indice];
         Camera.main.backgroundColor = colores[indice];
+    }
+
+    public void Salir()
+    {
+        Debug.Log("salir");
     }
 }

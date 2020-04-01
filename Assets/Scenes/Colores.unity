@@ -233,17 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9780e65e7a8f54cbed0ca66f8e910b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  palabras:
-  - rojo
-  - azul
-  - verde
-  - violeta
-  - marron
-  - amarillo
-  - naranja
-  - blanco
-  - negro
-  - rosa
   colores:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0, b: 1, a: 1}
@@ -255,6 +244,17 @@ MonoBehaviour:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.90223503, a: 1}
+  coloresLetras:
+  - rojo
+  - azul
+  - verde
+  - violeta
+  - "marr\xF3n"
+  - amarillo
+  - naranja
+  - blanco
+  - negro
+  - rosa
 --- !u!4 &1999047817
 Transform:
   m_ObjectHideFlags: 0
