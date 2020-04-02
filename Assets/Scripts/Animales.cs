@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 using UnityEngine.Events;
 
@@ -18,12 +19,32 @@ public class Animales : MonoBehaviour
     public string[] animalesLetras;
 
     private string palabraActual;
+    public Image imagenActual;
+
     private int indiceAnterior = -1;
 
     // Start is called before the first frame update
     void Start()
     {
-        palabras[0] = animalesLetras;
+        List<string> listaPalabras = new List<string>();
+        for(int i = 0; i < animalesLetras.Length; i++)
+        {
+            if (animalesLetras[i].Contains("-"))
+            {
+                string[] vector = animalesLetras[i].Split('-');
+                foreach(string item in vector)
+                {
+                    listaPalabras.Add(item);
+                }
+            }
+            else
+            {
+                listaPalabras.Add(animalesLetras[i]);
+            }
+        }
+
+        palabras[0] = listaPalabras.ToArray();
+
         reconocimiento = new ReconocimientoVoz(palabras, acciones, this);
         CambiarAnimal();
     }
@@ -37,7 +58,7 @@ public class Animales : MonoBehaviour
     public void EscuchadoAnimal()
     {
         string palabra = reconocimiento.reconocido;
-        if (palabra == palabraActual)
+        if (palabraActual.Contains(palabra))
         {
             //Le pego
             CambiarAnimal();
@@ -54,13 +75,13 @@ public class Animales : MonoBehaviour
         int indice;
         do
         {
-            indice = Random.Range(0, palabras[0].Length);
+            indice = Random.Range(0, animalesLetras.Length);
         } while (indiceAnterior == indice);
 
         indiceAnterior = indice;
 
-        palabraActual = palabras[0][indice];
-        
+        palabraActual = animalesLetras[indice];
+        imagenActual.sprite = animales[indice];
     }
 
     public void Salir()
