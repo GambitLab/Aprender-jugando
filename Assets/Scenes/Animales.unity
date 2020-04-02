@@ -398,8 +398,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50644b08bc336294a86b69bf5f4e02d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animales: []
-  animalesLetras: []
+  animales:
+  - {fileID: 21300000, guid: f33a2a31e8722b346b09c869d0c33d61, type: 3}
+  - {fileID: 21300000, guid: 0ec70746538ab954daf0d7fd158b91b9, type: 3}
+  - {fileID: 21300000, guid: 76afbb44424661e4a9d7cf23a1f5e306, type: 3}
+  - {fileID: 21300000, guid: e3cb58ef2d65f124f8bc6bc5253587ec, type: 3}
+  - {fileID: 21300000, guid: c13feb8388ec8e34a81feb7e34bc852d, type: 3}
+  - {fileID: 21300000, guid: 80081ff15a3427f4a9155c2ce538c532, type: 3}
+  - {fileID: 21300000, guid: c06c5c7121ee367458b5135d9c943b05, type: 3}
+  - {fileID: 21300000, guid: 4f2b78c09486c9240945af2da92ca58f, type: 3}
+  - {fileID: 21300000, guid: c487825d52928fa4eb64cbd75ac81711, type: 3}
+  - {fileID: 21300000, guid: 274d25c9f08901249a61a1b8d63f929a, type: 3}
+  - {fileID: 21300000, guid: 8ee09f53aac0128449b667fda065b7c5, type: 3}
+  - {fileID: 21300000, guid: 0e7034c2d4707a84eac10c84888b638a, type: 3}
+  - {fileID: 21300000, guid: 4cafc0ad4b090d243af98de40dd97608, type: 3}
+  - {fileID: 21300000, guid: 56c8e08e29a6b69478cd39c09b9e30fb, type: 3}
+  animalesLetras:
+  - abeja
+  - cerdo-puerco-chancho
+  - cocodrilo
+  - cebra
+  - elefante
+  - gato
+  - jirafa
+  - "le\xF3n"
+  - mono
+  - oso
+  - oveja
+  - perro
+  - vaca
+  - tortuga
+  imagenActual: {fileID: 1726870092}
 --- !u!4 &254668084
 Transform:
   m_ObjectHideFlags: 0
@@ -469,9 +498,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f33a2a31e8722b346b09c869d0c33d61, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
