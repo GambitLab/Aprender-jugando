@@ -18,6 +18,8 @@ public class Animales : MonoBehaviour
     public string[] animalesLetras;
 
     private string palabraActual;
+    public Sprite imagenActual;
+
     private int indiceAnterior = -1;
 
     // Start is called before the first frame update
