@@ -58,7 +58,7 @@ public class Colores : MonoBehaviour
 
         indiceAnterior = indice;
 
-        palabraActual = palabras[0][indice];
+        palabraActual = coloresLetras[indice];
         Camera.main.backgroundColor = colores[indice];
     }
 

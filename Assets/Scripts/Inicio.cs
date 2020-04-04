@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Inicio : MonoBehaviour
 {
     private ReconocimientoVoz reconocimiento;
 
     private string[][] palabras = { null,
-                                    new string[] { "salir" } };
+                                    new string[] { "salir", "atrás", "volver" } };
 
     private string[] acciones = { "CambiarEscena",
                                  "Salir"};
+
     public string[] escenasPalabras;
     public string[] nombreEscenas;
 
@@ -51,8 +51,8 @@ public class Inicio : MonoBehaviour
         for(int i = 0; i < escenasPalabras.Length; i++)
         {
             if (escenasPalabras[i].Contains(palabra))
-            {
-                SceneManager.LoadScene(nombreEscenas[i]);
+            {                
+                Utilidades.cambiarEscena(nombreEscenas[i]);
                 break;
             }
         }
